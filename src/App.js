@@ -1,26 +1,42 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import TextField from './components/TextField';
+import Container from '@material-ui/core/Container';
+import { makeStyles } from '@material-ui/core/styles';
 
-function App() {
+const useStyles = makeStyles(theme => ({
+  container: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  formControl: {
+    margin: theme.spacing(1),
+  },
+}));
+
+class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+        username:''
+    }
+    this.handleChange = this.handleChange.bind(this)  
+  }
+  handleChange(e){
+    const value = e.target.value
+    console.log(value)
+    this.setState({value})
+  }
+
+  render(){
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container maxWidth="sm">
+
+      <TextField label="username" value = {this.state.value} handleChange={this.handleChange} />
+    </Container>
   );
+  }
 }
 
 export default App;
