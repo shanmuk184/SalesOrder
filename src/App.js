@@ -4,6 +4,7 @@ import './App.css';
 import TextField from './components/TextField';
 import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
+import Register from './components/Register';
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -33,7 +34,7 @@ class App extends React.Component {
   return (
     <Container maxWidth="sm">
 
-      <TextField label="username" value = {this.state.value} handleChange={this.handleChange} />
+      < Register />
     </Container>
   );
   }
